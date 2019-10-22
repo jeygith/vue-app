@@ -1879,8 +1879,8 @@ __webpack_require__.r(__webpack_exports__);
 
       this.form.post('/statuses').then(function (status) {
         return _this.$emit('completed', status);
-      })["catch"](function (err) {
-        return console.log(_this.form.errors);
+      })["catch"](function (errors) {
+        return console.log(errors);
       });
     }
   }
@@ -20145,6 +20145,9 @@ var render = function() {
             submit: function($event) {
               $event.preventDefault()
               return _vm.onSubmit($event)
+            },
+            keydown: function($event) {
+              return _vm.form.errors.clear()
             }
           }
         },
@@ -20178,9 +20181,14 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("button", { staticClass: "button is-primary" }, [
-            _vm._v("\n                Submit\n            ")
-          ])
+          _c(
+            "button",
+            {
+              staticClass: "button is-primary",
+              attrs: { disabled: _vm.form.errors.any() }
+            },
+            [_vm._v("\n                Submit\n            ")]
+          )
         ]
       )
     ])
@@ -35825,9 +35833,9 @@ function () {
 
           resolve(response.data);
         })["catch"](function (error) {
-          _this.onFail(error.response.data);
+          _this.onFail(error.response.data.errors);
 
-          reject(error.response.data);
+          reject(error.response.data.errors);
         });
       });
     }

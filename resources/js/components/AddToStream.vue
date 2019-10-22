@@ -4,7 +4,7 @@
             Push to the stream...
         </div>
         <div class="message-body">
-            <form @submit.prevent="onSubmit">
+            <form @submit.prevent="onSubmit" @keydown="form.errors.clear()">
                 <p class="control">
                     <textarea name="" id="" cols="30" rows="10" class="textarea"
                               v-model="form.body">
@@ -16,7 +16,7 @@
                 </p>
 
 
-                <button class="button is-primary">
+                <button class="button is-primary" :disabled="form.errors.any()">
                     Submit
                 </button>
             </form>
@@ -39,7 +39,8 @@
                 this.form
                     .post('/statuses')
                     .then(status => this.$emit('completed', status))
-                    .catch(err =>console.log(this.form.errors));
+                    .catch(errors => console.log(errors));
+
             }
         }
     }
