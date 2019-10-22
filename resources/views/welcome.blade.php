@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,3 +39,6 @@
 <script src="/js/app.js"></script>
 </body>
 </html>
+--}}
+
+@extends('layouts.master')
