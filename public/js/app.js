@@ -331,8 +331,10 @@ new Vue({
   },
   methods: {
     onSubmit: function onSubmit() {
-      this.form.post('/projects').then(function (response) {
-        return alert('Wahoo!');
+      this.form.post('/projects').then(function (data) {
+        return console.log(data);
+      })["catch"](function (errors) {
+        return console.log(errors);
       });
     }
   }
