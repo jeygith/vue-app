@@ -3,7 +3,7 @@ class Errors {
      * Create a new Errors instance.
      */
     constructor() {
-        this.errors = {};
+            this.errors = {};
     }
 
 

@@ -22,6 +22,6 @@ Route::get('projects/create', 'ProjectController@create');
 Route::post('projects', 'ProjectController@store');
 
 
-Route::get('statuses', function () {
-    return Status::with('user')->latest()->get();
-});
+Route::get('statuses', 'StatusesController@index');
+
+Route::post('statuses', 'StatusesController@store');

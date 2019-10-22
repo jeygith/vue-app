@@ -13,6 +13,9 @@
 
                     </div>
                 </div>
+
+                <!--Add to stream form-->
+                <add-to-stream @completed="addStatus"></add-to-stream>
             </div>
         </div>
     </div>
@@ -21,17 +24,22 @@
 <script>
     import moment from 'moment';
     import Status from "../models/Status";
+    import AddToStream from "../components/AddToStream";
+
     export default {
+        components: {
+            AddToStream
+        },
         data() {
             return {
                 statuses: []
             }
         },
 
-        filters:{
-          ago(date){
-              return moment(date).fromNow();
-          }
+        filters: {
+            ago(date) {
+                return moment(date).fromNow();
+            }
         },
 
         created() {
@@ -43,6 +51,10 @@
         methods: {
             postedOn(status) {
                 return moment(status.created_at).fromNow();
+            },
+            addStatus(status) {
+                this.statuses.unshift(status);
+                console.log('your status has been added to the stream');
             }
         }
     }
