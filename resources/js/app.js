@@ -1,5 +1,6 @@
+import'./bootstrap';
+
 import Form from './core/Form';
-import Vue from 'vue';
 
 import axios from 'axios';
 import Example from './components/Example';
@@ -7,6 +8,9 @@ import Example from './components/Example';
 import Notification from "./components/Notification";
 
 import Coupon from "./components/Coupon";
+
+import router from './routes';
+
 window.axios = axios;
 window.Form = Form;
 
@@ -19,6 +23,8 @@ new Vue({
     components: {
         Example, Notification, Coupon
     },
+
+    router,
 
     data: {
         form: new Form({

@@ -13,6 +13,16 @@
     <input type="text" v-model="coupon">
 
     <coupon v-model="coupon"></coupon>
+
+    <router-link to="/" exact>Home
+    </router-link>
+    <router-link to="/about">About
+    </router-link>
+
+    <router-view>
+
+    </router-view>
+
 </div>
 
 
