@@ -2,25 +2,31 @@ import Form from './core/Form';
 import Vue from 'vue';
 
 import axios from 'axios';
-import Example from './components/Example'
+import Example from './components/Example';
 
+import Notification from "./components/Notification";
 
+import Coupon from "./components/Coupon";
 window.axios = axios;
 window.Form = Form;
+
+
 
 
 new Vue({
     el: '#app',
 
-    components:{
-        Example
+    components: {
+        Example, Notification, Coupon
     },
 
     data: {
         form: new Form({
             name: '',
             description: ''
-        })
+        }),
+
+        coupon: 'FREEBIE',
     },
 
     methods: {
@@ -31,3 +37,31 @@ new Vue({
         }
     }
 });
+
+let store = {
+    user: {
+        name: 'John Doe'
+    }
+};
+
+
+new Vue({
+    el: '#one',
+
+    data:{
+        shared: store
+    }
+});
+
+
+new Vue({
+    el: '#two',
+
+    data:{
+        shared: store
+    },
+
+});
+
+
+

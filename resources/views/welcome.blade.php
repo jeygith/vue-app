@@ -8,11 +8,21 @@
     <title>Laravel</title>
 </head>
 <body>
-<div id="app">
-    <ul>
-        <li v-for="skill in skills" v-text="skill"></li>
-    </ul>
 
+<div id="app">
+    <input type="text" v-model="coupon">
+
+    <coupon v-model="coupon"></coupon>
+</div>
+
+
+<div id="one">
+    @{{shared.user.name}}
+</div>
+
+
+<div id="two">
+    @{{shared.user.name}}
 </div>
 
 <script src="/js/app.js"></script>

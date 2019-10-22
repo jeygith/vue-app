@@ -14330,6 +14330,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Example__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+/* harmony import */ var _components_Notification__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Notification */ "./resources/js/components/Notification.js");
+/* harmony import */ var _components_Coupon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Coupon */ "./resources/js/components/Coupon.js");
+
+
 
 
 
@@ -14339,13 +14343,16 @@ window.Form = _core_Form__WEBPACK_IMPORTED_MODULE_0__["default"];
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   components: {
-    Example: _components_Example__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Example: _components_Example__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Notification: _components_Notification__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Coupon: _components_Coupon__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: {
     form: new _core_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
       name: '',
       description: ''
-    })
+    }),
+    coupon: 'FREEBIE'
   },
   methods: {
     onSubmit: function onSubmit() {
@@ -14354,6 +14361,55 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       })["catch"](function (errors) {
         return console.log(errors);
       });
+    }
+  }
+});
+var store = {
+  user: {
+    name: 'John Doe'
+  }
+};
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+  el: '#one',
+  data: {
+    shared: store
+  }
+});
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
+  el: '#two',
+  data: {
+    shared: store
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Coupon.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Coupon.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['code'],
+  template: "<input type=\"text\" :value=\"code\" @input=\"updateCode($event.target.value)\" ref=\"input\">",
+  data: function data() {
+    return {
+      invalids: ['ALLFREE', 'SOMETHINGELSE']
+    };
+  },
+  methods: {
+    updateCode: function updateCode(code) {
+      // validation
+      if (this.invalids.includes(code)) {
+        alert('This code is no longer valid. Sorry');
+        this.$refs.input.value = code = '';
+      }
+
+      this.$emit('input', code);
     }
   }
 });
@@ -14371,6 +14427,21 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   template: "<h1>Hello there!!</h1>"
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Notification.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Notification.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  template: "<h1>This is sparta!!</h1>"
 });
 
 /***/ }),
