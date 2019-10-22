@@ -1929,6 +1929,11 @@ __webpack_require__.r(__webpack_exports__);
       statuses: []
     };
   },
+  filters: {
+    ago: function ago(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).fromNow();
+    }
+  },
   created: function created() {
     var _this = this;
 
@@ -20162,7 +20167,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.postedOn(status)))])
+              _c("p", [_vm._v(_vm._s(_vm._f("ago")(status.created_at)))])
             ]),
             _vm._v(" "),
             _c("div", {
