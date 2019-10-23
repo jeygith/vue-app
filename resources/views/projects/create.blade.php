@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
-    <style>body { padding-top: 40px; }</style>
+    <style>body {
+            padding-top: 40px;
+        }</style>
 </head>
 
 <body>
 <div id="app" class="container">
     <Notification></Notification>
 
+    <carousel :autoplay="true">
+        <img src="https://placeimg.com/640/480/any" alt="">
+        <img src="https://placeimg.com/640/480/any?2" alt="">
+        <img src="https://placeimg.com/640/480/any?3" alt="">
+        <img src="https://placeimg.com/640/480/any?4" alt="">
+        <img src="https://placeimg.com/640/480/any?5" alt="">
+
+    </carousel>
     @include ('projects.list')
 
     <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
@@ -27,7 +37,8 @@
 
             <input type="text" id="description" name="description" class="input" v-model="form.description">
 
-            <span class="help is-danger" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></span>
+            <span class="help is-danger" v-if="form.errors.has('description')"
+                  v-text="form.errors.get('description')"></span>
         </div>
 
         <div class="control">

@@ -10,6 +10,7 @@ import Notification from "./components/Notification";
 import Coupon from "./components/Coupon";
 
 import router from './routes';
+import Carousel from "./components/Carousel";
 
 window.axios = axios;
 window.Form = Form;
@@ -21,7 +22,7 @@ new Vue({
     el: '#app',
 
     components: {
-        Example, Notification, Coupon
+        Example, Notification, Coupon, Carousel
     },
 
     router,
