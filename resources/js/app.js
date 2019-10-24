@@ -12,6 +12,7 @@ import Coupon from "./components/Coupon";
 import router from './routes';
 import Carousel from "./components/Carousel";
 import SeriesDropdown from "./components/SeriesDropdown";
+import SupportButton from "./components/SupportButton";
 
 window.axios = axios;
 window.Form = Form;
@@ -23,7 +24,7 @@ new Vue({
     el: '#app',
 
     components: {
-        Example, Notification, Coupon, Carousel, SeriesDropdown
+        Example, Notification, Coupon, Carousel, SeriesDropdown, SupportButton
     },
 
     router,

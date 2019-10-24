@@ -7,6 +7,8 @@
     <style>body {
             padding-top: 40px;
         }</style>
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
 </head>
 
 <body>
@@ -51,6 +53,8 @@
     </form>
 
     <portal-target name="nav-after"></portal-target>
+
+    <support-button></support-button>
 </div>
 
 <script src="/js/app.js"></script>
