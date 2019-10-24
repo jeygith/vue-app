@@ -21,6 +21,10 @@
         <img src="https://placeimg.com/640/480/any?5" alt="">
 
     </carousel>
+
+    <series-dropdown>
+
+    </series-dropdown>
     @include ('projects.list')
 
     <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
@@ -45,6 +49,8 @@
             <button class="button is-primary" :disabled="form.errors.any()">Create</button>
         </div>
     </form>
+
+    <portal-target name="nav-after"></portal-target>
 </div>
 
 <script src="/js/app.js"></script>
