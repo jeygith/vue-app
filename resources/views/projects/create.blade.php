@@ -55,6 +55,16 @@
     <portal-target name="nav-after"></portal-target>
 
     <support-button></support-button>
+
+    <h3>Any where else on the website we can render an accordion</h3>
+
+    <div class="container">
+        <div class="w-3/5 text-center">
+            <accordion title="What's up my nigga?" body="this is how it is my friends!!">
+
+            </accordion>
+        </div>
+    </div>
 </div>
 
 <script src="/js/app.js"></script>
