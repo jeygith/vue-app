@@ -2021,11 +2021,106 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      message: {}
+      message: {},
+      errors: {},
+      submitted: false
     };
+  },
+  methods: {
+    cancel: function cancel() {
+      this.$modal.hide('contact-support-modal');
+      this.resetForm();
+    },
+    contactSupport: function contactSupport() {
+      var _this = this;
+
+      this.submitted = true;
+      axios.post('/contact', this.message).then(function () {
+        _this.$modal.hide('contact-support-modal');
+
+        _this.resetForm();
+
+        swal('Thanks! We will be in touch soon.');
+      })["catch"](function (errors) {
+        return _this.errors = errors.response.data.errors;
+      });
+    },
+    resetForm: function resetForm() {
+      this.message = {};
+      this.submitted = false;
+    }
   }
 });
 
@@ -25587,12 +25682,13 @@ var render = function() {
             name: "contact-support-modal",
             height: "auto",
             width: "100%",
-            pivotY: 1
+            pivotY: 1,
+            classes: "bg-white rounded-none shadow-inner"
           }
         },
         [
-          _c("div", [
-            _c("h1", { staticClass: "text text-2xl" }, [
+          _c("div", { staticClass: "py-6 container mx-auto" }, [
+            _c("h1", { staticClass: "text-center text-2xl" }, [
               _vm._v("Have a Question?")
             ]),
             _vm._v(" "),
@@ -25605,6 +25701,9 @@ var render = function() {
                   submit: function($event) {
                     $event.preventDefault()
                     return _vm.contactSupport($event)
+                  },
+                  keydown: function($event) {
+                    _vm.submitted = false
                   }
                 }
               },
@@ -25624,8 +25723,7 @@ var render = function() {
                       type: "text",
                       name: "name",
                       id: "name",
-                      placeholder: "What's your name?",
-                      required: ""
+                      placeholder: "What's your name?"
                     },
                     domProps: { value: _vm.message.name },
                     on: {
@@ -25639,7 +25737,163 @@ var render = function() {
                         _vm.$set(_vm.message, "name", $event.target.value)
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.name
+                    ? _c("span", {
+                        staticClass: "text-xs text-red-500 pt-2",
+                        domProps: { textContent: _vm._s(_vm.errors.name[0]) }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.message.email,
+                        expression: "message.email"
+                      }
+                    ],
+                    staticClass: "input is-minimal",
+                    attrs: {
+                      type: "text",
+                      name: "email",
+                      id: "email",
+                      placeholder: "Which email address should we respond to?",
+                      required: ""
+                    },
+                    domProps: { value: _vm.message.email },
+                    on: {
+                      keydown: function($event) {
+                        delete _vm.errors.email
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.message, "email", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.email
+                    ? _c("span", {
+                        staticClass: "text-xs text-red-500 pt-2",
+                        domProps: { textContent: _vm._s(_vm.errors.email[0]) }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.message.question,
+                        expression: "message.question"
+                      }
+                    ],
+                    staticClass: "textarea is-minimal",
+                    attrs: {
+                      name: "question",
+                      id: "body",
+                      "data-autosize": "",
+                      required: "",
+                      placeholder: "What's your question?"
+                    },
+                    domProps: { value: _vm.message.question },
+                    on: {
+                      keydown: function($event) {
+                        delete _vm.errors.question
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.message, "question", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.question
+                    ? _c("span", {
+                        staticClass: "text-xs text-red-500 pt-2",
+                        domProps: {
+                          textContent: _vm._s(_vm.errors.question[0])
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.message.verification,
+                        expression: "message.verification"
+                      }
+                    ],
+                    staticClass: "input is-minimal",
+                    attrs: {
+                      name: "veirfication",
+                      id: "verification",
+                      placeholder: "What is 1 + 4?",
+                      required: "",
+                      type: "text"
+                    },
+                    domProps: { value: _vm.message.verification },
+                    on: {
+                      keydown: function($event) {
+                        delete _vm.errors.verification
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.message,
+                          "verification",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.verification
+                    ? _c("span", {
+                        staticClass: "text-xs text-red-500 pt-2",
+                        domProps: {
+                          textContent: _vm._s(_vm.errors.verification[0])
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex justify-end" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "button is-default mr-4 py-2 rounded-full",
+                      on: { click: _vm.cancel }
+                    },
+                    [_vm._v("Cancel")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "button bg-blue-500 hover:bg-blue-700 hover:text-white text-white py-1 rounded-full",
+                      attrs: { type: "submit", disabled: _vm.submitted }
+                    },
+                    [_vm._v("Send\n                    ")]
+                  )
                 ])
               ]
             )

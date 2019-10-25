@@ -25,3 +25,5 @@ Route::post('projects', 'ProjectController@store');
 Route::get('statuses', 'StatusesController@index');
 
 Route::post('statuses', 'StatusesController@store');
+
+Route::post('contact', 'ContactController@store');
