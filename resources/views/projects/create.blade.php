@@ -60,9 +60,18 @@
 
     <div class="container">
         <div class="w-3/5 text-center">
-            <accordion title="What's up my nigga?" body="this is how it is my friends!!">
+            <accordion title="What's up my nigg?" body="this is how it is my friends!!">
 
             </accordion>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="w-3/5 text-center">
+            <accordion2 :items="{{$questions}}">
+
+            </accordion2>
         </div>
     </div>
 </div>

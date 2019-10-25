@@ -14,6 +14,7 @@ import Carousel from "./components/Carousel";
 import SeriesDropdown from "./components/SeriesDropdown";
 import SupportButton from "./components/SupportButton";
 import Accordion from "./components/Accordion";
+import Accordion2 from "./components/Accordion2";
 
 window.axios = axios;
 window.Form = Form;
@@ -25,7 +26,7 @@ new Vue({
     el: '#app',
 
     components: {
-        Example, Notification, Coupon, Carousel, SeriesDropdown, SupportButton, Accordion
+        Example, Notification, Coupon, Carousel, SeriesDropdown, SupportButton, Accordion, Accordion2
     },
 
     router,

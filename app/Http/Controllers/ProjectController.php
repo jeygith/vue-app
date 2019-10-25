@@ -11,8 +11,24 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $questions = json_encode([
+            [
+                'question' => 'yoo why are you running?',
+                'answer' => 'coz ayam a G'
+            ],
+            [
+                'question' => 'yoo why are you running?',
+                'answer' => 'coz ayam a G'
+            ],
+            [
+                'question' => 'yoo why are you running?',
+                'answer' => 'coz ayam a nigg'
+            ]
+        ]);
+
         return view('projects.create', [
-            'projects' => Project::all()
+            'projects' => Project::all(),
+            'questions' => $questions
         ]);
     }
 
