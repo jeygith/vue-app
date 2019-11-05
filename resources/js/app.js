@@ -1,4 +1,4 @@
-import'./bootstrap';
+import './bootstrap';
 
 import Form from './core/Form';
 
@@ -15,18 +15,25 @@ import SeriesDropdown from "./components/SeriesDropdown";
 import SupportButton from "./components/SupportButton";
 import Accordion from "./components/Accordion";
 import Accordion2 from "./components/Accordion2";
+import Pinned from "./components/Pinned";
 
 window.axios = axios;
 window.Form = Form;
-
-
 
 
 new Vue({
     el: '#app',
 
     components: {
-        Example, Notification, Coupon, Carousel, SeriesDropdown, SupportButton, Accordion, Accordion2
+        Example,
+        Notification,
+        Coupon,
+        Carousel,
+        SeriesDropdown,
+        SupportButton,
+        Accordion,
+        Accordion2,
+        Pinned
     },
 
     router,
@@ -59,7 +66,7 @@ let store = {
 new Vue({
     el: '#one',
 
-    data:{
+    data: {
         shared: store
     }
 });
@@ -68,7 +75,7 @@ new Vue({
 new Vue({
     el: '#two',
 
-    data:{
+    data: {
         shared: store
     },
 
