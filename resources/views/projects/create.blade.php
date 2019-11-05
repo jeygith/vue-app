@@ -13,6 +13,10 @@
 
 <body>
 <div id="app" class="container">
+
+    <div id="js-condition">
+        This should hide on scroll
+    </div>
     <Notification></Notification>
 
     <carousel :autoplay="true">
@@ -75,6 +79,12 @@
         </div>
     </div>
 
+    <conditional-element when-hidden="#js-condition">
+        <div>
+            this is a conditional element
+        </div>
+    </conditional-element>
+
     <div class="example">
         <div class="flex justify-center">
             <div class="bg-grey-500 rounded-lg p-4 mx-4">
@@ -88,6 +98,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 <script src="/js/app.js"></script>

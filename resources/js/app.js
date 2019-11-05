@@ -17,6 +17,7 @@ import Accordion from "./components/Accordion";
 import Accordion2 from "./components/Accordion2";
 import Pinned from "./components/Pinned";
 import Count from "./components/Count";
+import ConditionalElement from "./components/ConditionalElement";
 
 window.axios = axios;
 window.Form = Form;
@@ -35,7 +36,8 @@ new Vue({
         Accordion,
         Accordion2,
         Pinned,
-        Count
+        Count,
+        ConditionalElement
     },
 
     router,
