@@ -16,6 +16,7 @@ import SupportButton from "./components/SupportButton";
 import Accordion from "./components/Accordion";
 import Accordion2 from "./components/Accordion2";
 import Pinned from "./components/Pinned";
+import Count from "./components/Count";
 
 window.axios = axios;
 window.Form = Form;
@@ -33,7 +34,8 @@ new Vue({
         SupportButton,
         Accordion,
         Accordion2,
-        Pinned
+        Pinned,
+        Count
     },
 
     router,

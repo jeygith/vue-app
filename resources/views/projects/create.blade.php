@@ -74,6 +74,20 @@
             </accordion2>
         </div>
     </div>
+
+    <div class="example">
+        <div class="flex justify-center">
+            <div class="bg-grey-500 rounded-lg p-4 mx-4">
+                <count :to="11"></count>
+            </div>
+            <div class="bg-grey-500 rounded-lg p-4 mx-4">
+                <count :to="9000"></count>
+            </div>
+            <div class="bg-grey-500 rounded-lg p-4 mx-4">
+                <count :to="1955"></count>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="/js/app.js"></script>
